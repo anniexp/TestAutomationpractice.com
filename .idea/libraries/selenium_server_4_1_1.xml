@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="selenium-server-4.1.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/selenium-server-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/chromedriver_win32.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="jar://$USER_HOME$/Downloads/chromedriver_win32.zip!/" recursive="false" />
+  </library>
+</component>
