@@ -14,9 +14,8 @@ public class NavMenu {
     public static WebElement navDressesBtn = driver.findElement(By.xpath("/html/body/div[1]/div[1]/header/div[3]/div/div/div[6]/ul/li[2]/a"));
     public static WebElement navTshirtBtn = driver.findElement(By.xpath("/html/body/div[1]/div[1]/header/div[3]/div/div/div[6]/ul/li[3]/a"));
     public static WebElement subMenuTop = driver.findElement(By.xpath("/html/body/div[1]/div[1]/header/div[3]/div/div/div[6]/ul/li[1]/ul/li[1]/a"));
-    WebElement navWomenBtnBox = driver.findElement(By.xpath("/html/body/div[1]/div[1]/header/div[3]/div/div/div[6]/ul/li[1]/a"));
+    public static WebElement navWomenBtnBox = driver.findElement(By.xpath("/html/body/div[1]/div[1]/header/div[3]/div/div/div[6]/ul/li[1]/a"));
     public static WebElement subMenuBlouses = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[1]/ul/li[2]/a"));
-    // public static WebElement subMenuCasualDresses = driver.findElement(By.xpath("//*[contains(text(),'Casual Dresses')]"));
     public static WebElement subMenuCasualDresses = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]/a"));
     public static WebElement subMenuEveningDresses = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[2]/a"));
     public static WebElement subMenuSummerDresses = driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[3]/a"));

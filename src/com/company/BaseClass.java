@@ -49,7 +49,6 @@ public class BaseClass {
 
         Function<WebDriver, WebElement> function = new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
-                // WebElement elementToBeFound = driver.findElements(By.className("product-container"));
 
                 if (elementToBeFound != null) {
                     System.out.println("Target element found");
@@ -81,7 +80,7 @@ public class BaseClass {
         for (int i = 0; i < links.size(); i++) {
             WebElement E1 = links.get(i);
             String url = E1.getAttribute("href");
-            verifyLinks(url);
+            verifyLink(url);
         }
 
     }
@@ -98,7 +97,7 @@ public class BaseClass {
         for (int index = 0; index < images.size(); index++) {
             WebElement image = images.get(index);
             String imageURL = image.getAttribute("src");
-            verifyLinks(imageURL);
+            verifyLink(imageURL);
             checkImgIsDisplayed(image);
 
         }
@@ -118,7 +117,7 @@ public class BaseClass {
     }
 
     //for each link, get the response code and if its >=400, then the link is broken
-    public static void verifyLinks(String linkUrl) {
+    public static void verifyLink(String linkUrl) {
         boolean validLink = false;
         try {
             URL url = new URL(linkUrl);
@@ -131,7 +130,6 @@ public class BaseClass {
             if (httpURLConnect.getResponseCode() < 400) {
 
                 validLink = true;
-                //    System.out.println(linkUrl + " - " + httpURLConnect.getResponseMessage());
             }
             Assert.assertTrue(validLink);
         } catch (Exception e) {

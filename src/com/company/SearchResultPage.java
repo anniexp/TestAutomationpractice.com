@@ -17,7 +17,6 @@ public class SearchResultPage {
     public static Select highToLowPrice = new Select(driver.findElement(By.xpath("//select[@id='selectProductSort']")));
     public static WebElement firstProductLink = driver.findElement(By.xpath("//h5[@itemprop='name']//a"));
     public static int quantityOfProductsOnPage = driver.findElements(By.className("product-container")).size();
-    public static WebElement topProductPrice = driver.findElement(By.xpath("//*[@id='center_column']/ul/li[1]/div/div[2]/div[1]/span"));
     public static WebElement moreBtn = driver.findElement(By.xpath("//a[@title='View']"));
 
 //endregion

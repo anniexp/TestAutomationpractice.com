@@ -43,7 +43,7 @@ public class ContactUs {
 
     }
 
-    public static void GoToChildThread(WebElement messageSentResult, String cartEmptyMsg, String cartEmptyInputMsg) {
+    public static void goToChildThread(WebElement messageSentResult, String cartEmptyMsg, String cartEmptyInputMsg) {
         // get all the window handles and assign it to a set
         // It will include child window and parentwindow
         Set<String> windowHandles = driver.getWindowHandles();

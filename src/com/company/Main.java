@@ -28,11 +28,11 @@ public class Main {
 
     @Test
     public static void testSearch() {
+        //exercising soft assert
         SoftAssert softAssert = new SoftAssert();
         CharSequence productToSearch = "sleeve";
-
+        //search product
         HomePage.search(productToSearch);
-
         waitForPageResultProductsToLoad();
         WebElement foundProduct = driver.findElement(By.xpath("//a[@title='Faded Short Sleeve T-shirts']"));
         softAssert.assertNotNull(foundProduct);
@@ -50,16 +50,15 @@ public class Main {
         String expectedProperty = "Short Dress";
 
         driver.manage().window().maximize();
+        //search product
         search(productToSearch);
         //sort Products By Price High To Low
-
         SearchResultPage.sortProducts(2);
 
         String myWindowHandle = driver.getWindowHandle();
         driver.switchTo().window(myWindowHandle);
 
-        //    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        //  wait.until(ExpectedConditions.visibilityOf(topProductPric));
+
         waitElementOnPageToLoad(topProductPric);
 
         assertEquals(topProductPric.getText(), validTopProductPrice);
@@ -84,6 +83,7 @@ public class Main {
         String leftMessage = "Product successfully added to your shopping cart";
         String size = "2";
 
+        //maximize screen
         driver.manage().window().maximize();
         //search with keyword
         HomePage.search(productToSearch);
@@ -91,11 +91,11 @@ public class Main {
         SearchResultPage.sortProducts(2);
         //loading page logic
         pageLoadAfterSort();
-
+        //assert the price of the top product after the sort is $50.99
         assertEquals(topProductPric.getText(), validTopProductPrice);
         //go to the details of the first product
         gotoDetails();
-        //scroll down the page up to the properties of the product
+        //scroll down the page up to the properties of the product and assert their values
         scrollToProduct(productProperty);
         assertEquals(productCompositions.getText(), expectedCompositions);
         assertEquals(productStyles.getText(), expectedStyles);
@@ -108,7 +108,7 @@ public class Main {
         chooseProductToBeAddedToCart(size);
         //add product to the cart
         addProductToCart(wait);
-
+        //assert total price and the message with how many products are in the cart
         assertEquals(actualTotalSum.getText(), totalProductPrice);
         assertEquals("There are " + actualMessg.getText() + " items in your cart.", mssg);
         assertEquals(actualLeftMessg.getText(), leftMessage);
@@ -124,18 +124,15 @@ public class Main {
         String messgSendSucs = "Your message has been successfully sent to our team.";
         String otherReferenceInput = "5";
 
-        //setupBrowser();
         driver.manage().window().maximize();
-
         //go to contact us page
         goToContactUsPage();
-
         //fill message form
         fillMessageForm(valueOfHeaderDropdown, email, otherReferenceInput, filePath, message);
         //sent message
         sendMessage();
 
-
+        //assert the message on successfully sent message
         assertEquals(messageSentResult.getText(), messgSendSucs);
     }
 
@@ -198,7 +195,7 @@ public class Main {
         //sent message
         sendMessage();
 
-        GoToChildThread(messageSentResult, messgSend1Error, cartEmptyInputMsg);
+        goToChildThread(messageSentResult, messgSend1Error, cartEmptyInputMsg);
 
     }
 
@@ -273,9 +270,11 @@ public class Main {
         String countryIdInput = "21";
         CharSequence phoneMobileInput = "0890000000";
 
-
+        //make window on full screen
         driver.manage().window().maximize();
+        // redirect to AUTHENTICATION page
         goToSignInPage();
+        //go to CREATE AN ACCOUNT page and load YOUR PERSONAL INFORMATION form
         registerModalFormLoad(emailToInput);
 
         // fill registration box with valid data, filling only the required fields
@@ -290,12 +289,13 @@ public class Main {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         passwordRegistered = driver.findElement(By.xpath("/html/body/div/div[2]/div/div[3]/div/div/div[2]/form/div/div[2]/span/input"));
         emailRegistered = driver.findElement(By.xpath("//input[@id='email']"));
-
+        //wait until web element emailRegistered is visible on the redirected page
         System.out.println(passwordRegistered.isDisplayed());
         wait.until(ExpectedConditions.attributeContains(emailRegistered, "value", "kostadinab@abv.bg"));
-
+        //assert the input boxes are filled with the credentials the user just registered with
         assertEquals(emailRegistered.getAttribute("value"), emailToInput);
         assertEquals(passwordRegistered.getAttribute("value"), passwordToCheck);
+        //login
         loginSubmitBtn = driver.findElement(By.id("SubmitLogin"));
         loginSubmitBtn.click();
     }

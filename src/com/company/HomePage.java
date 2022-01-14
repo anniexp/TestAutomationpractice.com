@@ -41,7 +41,6 @@ public class HomePage {
 
     public static void siteHomePageLoad() {
         driver.navigate().to("http://automationpractice.com/index.php");
-        //System.out.println("Element with text(): " + siteTitle.getText());
     }
 
     public static void goToSignInPage() {
